@@ -15,7 +15,7 @@ class CreateEixosTable extends Migration
 
         Schema::create('eixos', function (Blueprint $table) {
             $table->id();
-            $table->string('nome', 50)->min(10);
+            $table->string('nome', 50);
             $table->softDeletes();
             $table->timestamps();
         });

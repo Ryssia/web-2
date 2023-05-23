@@ -41,7 +41,7 @@
                             <ul class="dropdown-menu">
                                 <li><a href="{{route('eixos.index')}}" class="dropdown-item">Eixos</a></li>
                                 <li><a href="{{route('cursos.index')}}" class="dropdown-item">Cursos</a></li>
-                                <li><a href="" class="dropdown-item">Professores</a></li>
+                                <li><a href="{{route('professores.index')}}" class="dropdown-item">Professores</a></li>
                                 <li><a href="" class="dropdown-item">Disciplinas</a></li>
 
                             </ul>

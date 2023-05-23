@@ -15,9 +15,9 @@ class CreateCursosTable extends Migration
     {
         Schema::create('cursos', function (Blueprint $table) {
             $table->id();
-            $table->string('nome', 50)->length(10);
-            $table->string('sigla', 8)->length(2);
-            $table->string('tempo', 2)->length(1);
+            $table->string('nome', 50);
+            $table->string('sigla', 8);
+            $table->string('tempo', 2);
             $table->unsignedBigInteger('eixo_id');
             $table->foreign('eixo_id')->references('id')->on('eixos');
             $table->softDeletes();
