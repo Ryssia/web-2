@@ -8,6 +8,22 @@
 <form action="{{ route('professores.update', $dados->id) }}" method="POST">
     @csrf
     @method('PUT')
+
+    <div class="row">
+            <div class="col" >
+                <div class="form-floating mb-3">
+                <div class="btn-group">
+                    <input type="radio" class="btn-check" name="status" id="ativo" value="1"  autocomplete="off"/>
+                    <label class="btn btn-primary" for="ativo">Ativo</label>
+
+                    <input type="radio" class="btn-check" name="status" id="inativo" value="0" autocomplete="off" />
+                    <label class="btn btn-secondary" for="inativo">Inativo</label>
+
+                    </div>
+                </div>
+            </div>
+    </div>
+
     <div class="row">
         <div class="col" >
             <div class="form-floating mb-3">
@@ -42,7 +58,7 @@
         <div class="col" >
             <div class="form-floating mb-3">
                 <input 
-                    type="number" 
+                    type="text" 
                     class="form-control" 
                     name="siape" 
                     placeholder="siape"

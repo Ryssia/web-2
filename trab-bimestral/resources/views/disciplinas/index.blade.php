@@ -1,17 +1,17 @@
 <!-- Herda o layout padrão definido no template "main" -->
-@extends('templates.main', ['titulo' => "Professores", 'rota' => "professores.create"])
+@extends('templates.main', ['titulo' => "Disciplinas", 'rota' => "disciplinas.create"])
 <!-- Preenche o conteúdo da seção "titulo" -->
-@section('titulo') Professor @endsection
+@section('titulo') Disciplina @endsection
 <!-- Preenche o conteúdo da seção "conteudo" -->
 @section('conteudo')
 
 <div class="row">
     <div class="col">
         <x-datatable 
-        title="Professores" 
-        crud="professores" 
-        :header="['id', 'nome', 'eixo_id', 'ativo']" 
-        :data="$dados" 
+        title="Disciplinas" 
+        crud="disciplinas" 
+        :header="['id', 'nome', 'curso_id', 'carga']" 
+        :data="$disciplinas" 
         :hide="[true, false, false, false]" />
         
     </div>

@@ -6,11 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateCursosTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+    
     public function up() 
     {
         Schema::create('cursos', function (Blueprint $table) {

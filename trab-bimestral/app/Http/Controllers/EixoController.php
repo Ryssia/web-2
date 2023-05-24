@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Eixo;
+use App\Models\Professor;
 
 class EixoController extends Controller{
     

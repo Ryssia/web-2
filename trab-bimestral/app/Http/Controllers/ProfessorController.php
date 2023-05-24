@@ -10,8 +10,9 @@ class ProfessorController extends Controller{
     
     public function index() {
 
+        $eixo = Eixo::all();
         $dados = Professor::all();
-        return view('professores.index')->with('dados', $dados);
+        return view('professores.index')->with('dados', $dados)->with('eixo', $eixo);
     }
 
    
@@ -30,7 +31,7 @@ class ProfessorController extends Controller{
 
    
     public function show($id) {
-        //
+        
     }
 
     
