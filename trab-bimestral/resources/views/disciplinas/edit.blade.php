@@ -17,6 +17,7 @@
                         class="form-control" 
                         name="nome" 
                         placeholder="Nome"
+                        value="{{$disciplina->nome}}"
                     />
                     <label for="nome">Nome</label>
                 </div>
@@ -31,6 +32,7 @@
                         class="form-control" 
                         name="carga" 
                         placeholder="Carga"
+                        value="{{$disciplina->carga}}"
                     />
                     <label for="carga">Carga horária</label>
                 </div>
@@ -42,7 +44,7 @@
                 <div class="form-floating mb-3">
                     <select name="curso_id" class="form-select" >    <!--caixa do select-->
                         <option selected>Selecione o curso</option>
-                            <?php foreach($dados as $item){?>       <!--foreach que percorre os dados e exibe no select-->
+                            <?php foreach($cursos as $item){?>       <!--foreach que percorre os dados e exibe no select-->
                                 <option value="<?php echo $item['id']?>"> <?php echo $item['nome']?>  </option>  
                             <?php } ?>
                     </select>
