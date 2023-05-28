@@ -25,7 +25,35 @@ class ProfessorController extends Controller{
     
     public function store(Request $request) {
 
-        Professor::create(['nome' => $request->nome, 'email' => $request->email, 'siape' => $request->siape, 'eixo_id' => $request->eixo_id, 'ativo' => $request->status]);
+        $regras = [
+
+            'nome' => 'required|max:100|min:10',
+            'email' => 'required|max:250|min:15',
+            'siape' => 'required|max:10|min:8',
+            'eixo_id' => 'required',
+            'ativo' => 'required'
+
+        ];
+
+        $msgs = [
+
+            "required" => "O preenchimento do campo [:attribute] é obrigatório!",
+            "max" => "O campo [:attribute] possui tamanho máximo de [:max] caracteres!",
+            "min" => "O campo [:attribute] possui tamanho mínimo de [:min] caracteres!",
+
+        ];
+
+        $request->validate($regras, $msgs);
+
+        Professor::create([
+            'nome' => mb_strtoupper($request->nome, 'UTF-8'),
+            'email' => $request->email, 
+            'siape' => $request->siape, 
+            'eixo_id' => $request->eixo_id, 
+            'ativo' => $request->status
+        ]);
+
+        //Professor::create(['nome' => $request->nome, 'email' => $request->email, 'siape' => $request->siape, 'eixo_id' => $request->eixo_id, 'ativo' => $request->status]);
         return redirect()->route('professores.index');
     }
 

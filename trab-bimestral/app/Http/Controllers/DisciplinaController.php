@@ -27,7 +27,30 @@ class DisciplinaController extends Controller
     
     public function store(Request $request) {
 
-        Disciplina::create(['nome' => $request->nome,'curso_id'=>$request->curso_id,'carga'=>$request->carga]);
+        $regras = [
+
+            'nome' => 'required|max:100|min:10',
+            'carga' => 'required|max:12|min:1',
+            'curso_id' => 'required'
+        ];
+
+        $msgs = [
+
+            "required" => "O preenchimento do campo [:attribute] é obrigatório!",
+            "max" => "O campo [:attribute] possui tamanho máximo de [:max] caracteres!",
+            "min" => "O campo [:attribute] possui tamanho mínimo de [:min] caracteres!",
+
+        ];
+
+        $request->validate($regras, $msgs);
+
+        Disciplina::create([
+            'nome' => mb_strtoupper($request->nome, 'UTF-8'),
+            'curso_id' => $request->curso_id,
+            'carga' => $request->carga
+        ]);
+
+        //Disciplina::create(['nome' => $request->nome,'curso_id'=>$request->curso_id,'carga'=>$request->carga]);
         return redirect()->route('disciplinas.index');
     }
 

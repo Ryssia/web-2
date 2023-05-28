@@ -26,10 +26,15 @@
                 <div class="form-floating mb-3">
                     <input 
                         type="text" 
-                        class="form-control" 
+                        class="form-control {{ $errors->has('nome') ? 'is-invalid' : '' }}" 
                         name="nome" 
                         placeholder="Nome"
                     />
+                        @if($errors->has('nome'))
+                            <div class='invalid-feedback'>
+                                {{ $errors->first('nome') }}
+                            </div>
+                        @endif
                     <label for="nome">Nome</label>
                 </div>
             </div>
@@ -40,10 +45,15 @@
                 <div class="form-floating mb-3">
                     <input 
                         type="text" 
-                        class="form-control" 
+                        class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" 
                         name="email" 
                         placeholder="Email"
                     />
+                        @if($errors->has('email'))
+                            <div class='invalid-feedback'>
+                                {{ $errors->first('email') }}
+                            </div>
+                        @endif
                     <label for="email">Email</label>
                 </div>
             </div>
@@ -54,10 +64,15 @@
                 <div class="form-floating mb-3">
                     <input 
                         type="text"
-                        class="form-control" 
+                        class="form-control {{ $errors->has('siape') ? 'is-invalid' : '' }}" 
                         name="siape" 
                         placeholder="Siape"
                     />
+                        @if($errors->has('siape'))
+                            <div class='invalid-feedback'>
+                                {{ $errors->first('siape') }}
+                            </div>
+                        @endif
                     <label for="siape">Siape</label>
                 </div>
             </div>
