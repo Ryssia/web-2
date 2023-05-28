@@ -20,7 +20,15 @@
             @foreach ($data as $item)
                 <tr>
                 @foreach ($header as $head)
+                @if($head == "status")
+                @if($item[$head] == 1)
+                <td>ativo</td>
+                @else
+                <td>inativo</td>
+                @endif
+                @else
                 <td>{{ $item[$head] }}</td>
+                @endif
                 @endforeach
                     <td>
                         <a href= "{{ route($crud.'.edit', $item[$header[0]]) }}" class="btn btn-success">
