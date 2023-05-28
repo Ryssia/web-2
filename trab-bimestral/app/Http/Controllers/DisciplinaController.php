@@ -14,6 +14,11 @@ class DisciplinaController extends Controller
         $cursos = Curso::all();
         $disciplinas = Disciplina::all();
 
+        foreach ($disciplinas as $disciplina) {
+            $curso = $cursos->firstWhere('id', $disciplina->curso_id);
+            $disciplina->curso = $curso->nome;
+        }
+
         return view('disciplinas.index')->with('cursos',$cursos)->with('disciplinas',$disciplinas);
     }
 

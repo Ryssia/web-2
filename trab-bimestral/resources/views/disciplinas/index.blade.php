@@ -10,7 +10,7 @@
         <x-datatable 
         title="Disciplinas" 
         crud="disciplinas" 
-        :header="['id', 'nome', 'curso_id', 'carga']" 
+        :header="['id', 'nome', 'curso', 'carga']" 
         :data="$disciplinas" 
         :hide="[true, false, false, false]" />
         

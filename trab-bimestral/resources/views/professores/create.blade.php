@@ -29,6 +29,7 @@
                         class="form-control {{ $errors->has('nome') ? 'is-invalid' : '' }}" 
                         name="nome" 
                         placeholder="Nome"
+                        value="{{old('nome')}}"
                     />
                         @if($errors->has('nome'))
                             <div class='invalid-feedback'>
@@ -48,6 +49,7 @@
                         class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" 
                         name="email" 
                         placeholder="Email"
+                        value="{{old('email')}}"
                     />
                         @if($errors->has('email'))
                             <div class='invalid-feedback'>
@@ -67,6 +69,7 @@
                         class="form-control {{ $errors->has('siape') ? 'is-invalid' : '' }}" 
                         name="siape" 
                         placeholder="Siape"
+                        value="{{old('siape')}}"
                     />
                         @if($errors->has('siape'))
                             <div class='invalid-feedback'>

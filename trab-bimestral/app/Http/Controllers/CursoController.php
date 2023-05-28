@@ -11,7 +11,7 @@ class CursoController extends Controller
 
     public function index()
     {
-
+        
         $dados = Curso::all();
         return view('cursos.index')->with('dados', $dados);
     }
