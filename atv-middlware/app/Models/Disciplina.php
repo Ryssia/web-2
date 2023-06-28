@@ -16,4 +16,12 @@ class Disciplina extends Model
     public function curso(){
         return $this->belongsTo('\App\Models\Curso');
     }
+
+    public function professor(){
+        return $this->belongsTo('App\Models\Professor','aulas');
+    }
+
+    public function aluno(){
+        return $this->belongsToMany('App\Models\Aluno','matriculas');
+    }
 }

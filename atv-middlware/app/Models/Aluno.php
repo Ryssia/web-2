@@ -17,4 +17,8 @@ class Aluno extends Model
         return $this->belongsTo('\App\Models\Curso');
     }
 
+    public function disciplina(){
+        return $this->belongsToMany('App\Models\Disciplina','matriculas');
+    }
+
 }

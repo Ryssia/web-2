@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Aluno;
+
+use App\Models\Curso;
+
+
 class AlunoController extends Controller
 {
     /**
@@ -13,7 +18,10 @@ class AlunoController extends Controller
      */
     public function index()
     {
-        //
+        $alunos = Aluno::all();
+
+        
+        return view('alunos.index',compact(['alunos']));
     }
 
     /**
@@ -23,7 +31,10 @@ class AlunoController extends Controller
      */
     public function create()
     {
-        //
+
+        $dados = Curso::all();
+
+        return view('alunos.create',compact(['dados']));
     }
 
     /**
@@ -34,7 +45,29 @@ class AlunoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $regras = [
+
+            'nome' => 'required|max:100|min:10',
+            
+        ];
+
+        $msgs = [
+            "required" => "Preenchimento obrigatório!",
+            "max" => "Tamanho máximo de :max caracteres!",
+            "min" => "Tamanho mínimo de :min caracteres!"
+        ];
+
+        $request->validate($regras,$msgs);
+
+        $aluno = new Aluno();
+        $aluno->nome = $request->nome;
+        $curso = Curso::find($request->curso_id);
+        $aluno->curso()->associate($curso);
+        $aluno->save();
+
+        return redirect()->route('alunos.index');
+
     }
 
     /**
