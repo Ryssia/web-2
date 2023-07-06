@@ -17,9 +17,11 @@ class PageNovoEixoTest extends PHPUnit\Framework\TestCase
 
         $inputEixo = $driver->findElement(WebDriverBy::name('nome'));
 
-        $inputEixo->sendKeys('Eixo Novoooooooo');
+        $inputEixo->sendKeys('Eixo Novoo');
 
         $inputEixo->sendKeys(WebDriverKeys::ENTER);
+
+        self::assertSame('http://localhost:8000/eixos', $driver->getCurrentURL());
          
     }
 
